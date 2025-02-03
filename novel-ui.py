@@ -63,7 +63,7 @@ class NovelReader:
         self.right_scrollbar = tk.Scrollbar(self.right_frame, orient=tk.VERTICAL)
         self.right_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        self.chapter_text = tk.Text(self.right_frame, wrap=tk.WORD, font=("微软雅黑", 14),
+        self.chapter_text = tk.Text(self.right_frame, wrap=tk.WORD, font=("思源黑体", 14),
                                     yscrollcommand=self.right_scrollbar.set)
         self.chapter_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         self.right_scrollbar.config(command=self.chapter_text.yview)
@@ -228,7 +228,7 @@ class NovelReader:
         label = tk.Label(direction_dialog, text="请输入对文本修改的方向（提示词）：")
         label.pack(pady=5)
 
-        text_box = tk.Text(direction_dialog, width=80, height=20, font=("微软雅黑", 12))
+        text_box = tk.Text(direction_dialog, width=80, height=20, font=("思源黑体", 12))
         text_box.pack(padx=10, pady=5)
         text_box.insert("1.0", self.modification_direction)
 
@@ -277,7 +277,7 @@ class NovelReader:
         label = tk.Label(direction_dialog, text="当前修改方向（可编辑，仅本次有效）：")
         label.pack(pady=5)
 
-        dir_box = tk.Text(direction_dialog, width=80, height=20, font=("微软雅黑", 12))
+        dir_box = tk.Text(direction_dialog, width=80, height=20, font=("思源黑体", 12))
         dir_box.pack(padx=10, pady=5)
         dir_box.insert("1.0", temp_direction_text)
 
@@ -326,7 +326,7 @@ class NovelReader:
         scroll_left = tk.Scrollbar(left_frame, orient=tk.VERTICAL)
         scroll_left.pack(side=tk.RIGHT, fill=tk.Y)
 
-        text_orig = tk.Text(left_frame, wrap=tk.WORD, font=("微软雅黑", 12),
+        text_orig = tk.Text(left_frame, wrap=tk.WORD, font=("思源黑体", 12),
                             yscrollcommand=scroll_left.set)
         text_orig.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scroll_left.config(command=text_orig.yview)
@@ -334,7 +334,7 @@ class NovelReader:
         scroll_right = tk.Scrollbar(right_frame, orient=tk.VERTICAL)
         scroll_right.pack(side=tk.RIGHT, fill=tk.Y)
 
-        text_mod = tk.Text(right_frame, wrap=tk.WORD, font=("微软雅黑", 12),
+        text_mod = tk.Text(right_frame, wrap=tk.WORD, font=("思源黑体", 12),
                            yscrollcommand=scroll_right.set)
         text_mod.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scroll_right.config(command=text_mod.yview)
@@ -357,7 +357,7 @@ class NovelReader:
             """
             先调用原有的保存逻辑，然后关闭对比窗口。
             """
-            self.save_modified_selection(original_text, modified_text)
+            self.save_modified_selection(original_text, text_mod.get("1.0", tk.END) )
             # 如果 save_modified_selection 执行时没有出错或中途 return，就关闭窗口
             compare_win.destroy()
 
@@ -686,7 +686,7 @@ class NovelReader:
         root_w = self.root.winfo_width()
         root_h = self.root.winfo_height()
 
-        label = tk.Label(toast, text=display_message, font=("微软雅黑", 10), bg="black", fg="white", padx=10, pady=5)
+        label = tk.Label(toast, text=display_message, font=("思源黑体", 10), bg="black", fg="white", padx=10, pady=5)
         label.pack()
         toast.update_idletasks()
 
